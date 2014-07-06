@@ -1,0 +1,48 @@
+.jumbotron
+  h1
+    | Test de Creatividad
+
+  p.lead
+    <img src="/images/lampara.png" alt="Creatividad" height="200">
+    br
+    br
+    | Completá el Test de Creatividad! y mirá tu nivel hoy para saber en qué áreas estas bien y en cuales estas mas débil para mejorarlo.
+
+
+ul.row.list-unstyled
+  li.col-sm-11.col-sm-push-1.minHeight(id='li-{{question.number}}', ng-repeat='question in questionsTest', ng-class='{ hid: question.number > 0}')
+    p {{question.number+1}} - {{question.name}}
+    br
+    div.col-sm-3.col-sm-push-4.col-xs-6.col-xs-push-3
+      ul.list-unstyled.width-center
+        li(ng-repeat='valoration in valorations')
+          input(type='radio', id='answer{{question.number}}', ng-click='radioClick(question.number, valoration.number)')
+          span {{valoration.title}}
+        br
+
+.row.col-sm-11.col-sm-push-1(ng-show='resultByAreas.length > 0')
+  p.center-block 
+    b Resultado General:
+    p {{resultMessage}}
+  
+  br
+  
+  p.center-block
+    b Resultado por Áreas:
+  .col-sm-6.col(ng-repeat = 'resultByArea in resultByAreas') 
+    p.center-block
+      b Area {{resultByArea.column}}
+    p.center-block {{resultByArea.description}}
+    p.center-block 
+      b Resultado: 
+      i {{resultByArea.result}}
+    br
+
+.row.col-sm-10.col-sm-offset-1
+  p.center-block
+    b 
+      i {{importantMessage}}
+  br  
+
+.footer.col-sm-12
+  p Realizado con los puntos del Test de Creatividad del libro "Agilmente"
