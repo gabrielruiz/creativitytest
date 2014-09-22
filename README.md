@@ -19,6 +19,8 @@ The following steps are need if you haven't grunt and bower installed. Otherwise
 
 `npm install`
 
+`bower install`
+
 `grunt serve`
 
 If you need to run only the test run `grunt test`.
