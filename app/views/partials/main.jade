@@ -8,16 +8,21 @@
     br
     | Completá el Test de Creatividad! y mirá tu nivel hoy para saber en qué áreas estas bien y en cuales estas mas débil para mejorarlo.
 
-
-ul.row.list-unstyled
-  li.col-sm-11.col-sm-push-1.minHeight(id='li-{{question.number}}', ng-repeat='question in questionsTest', ng-class='{ hid: question.number > 0}')
-    p {{question.number+1}} - {{question.name}}
+.row.col-sm-12
+  .col-sm-10.col-sm-push-1.col-sm-pull-1.col-xs-11.col-xs-push-1.col-xs-9.col-xs-push-1.col-xs-pull-2(id='progress')
+    .text-center(id='progressBar', style='width: {{questionPercent | number:2}}%;', ng-hide='questionPercent==0')
+    span(id='progressPercentage', ng-hide='questionPercent==0', style='left: {{questionPercent | number:2}}%;')
+      | {{questionPercent | number:0}}%
+ul.row.col-sm-11.col-sm-push-1.list-unstyled
+  li.col-sm-12.minHeight(id='li-{{question.number}}', ng-repeat='question in questionsTest', ng-class='{ hid: question.number > 0}')
+    p.question {{question.number+1}} - {{question.name}}
     br
-    div.col-sm-3.col-sm-push-4.col-xs-6.col-xs-push-3
+    div.col-sm-3.col-sm-push-4.col-xs-12
       ul.list-unstyled.width-center
         li(ng-repeat='valoration in valorations')
-          input(type='radio', id='answer{{question.number}}', ng-click='radioClick(question.number, valoration.number)')
-          span {{valoration.title}}
+          label.radio-inline(ng-click='radioClick(question.number, valoration.number)')
+            input(type='radio', id='answer{{question.number}}')
+            span {{valoration.title}}
         br
 
 .row.col-sm-11.col-sm-push-1(ng-show='resultByAreas.length > 0')

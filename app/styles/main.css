@@ -31,6 +31,31 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
+p.question {
+  min-height: 40px;
+}
+
+div#progress {
+  height: 20px;
+  font-size: 12px;
+}
+
+span#progressPercentage {
+  position: relative;
+  bottom: 11px;
+  display: inline-block;
+  margin: 0;
+  padding: 0 0 0 7px;
+  width: 40px;
+  height: auto;
+}
+
+div#progressBar {
+  background-color: #FFD700; 
+  clear: both; 
+  height: 5px;
+}
+
 /* Customize container */
 @media (min-width: 768px) {
   .container {
@@ -69,25 +94,6 @@ body {
   padding-bottom: 30px;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
-}
-
 /* Cursor pointer */
 input[type="radio"] {
   cursor: pointer;
@@ -108,18 +114,44 @@ ul.width-center {
   margin: auto;
 }
 
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
 /* Responsive: Portrait phones  */
 @media screen and (max-width: 768px) {
   .minHeight{
     min-height: 0;
   }
-  span.ng-binding {
-    bottom: 10px;
+
+  .radio-inline span {
+    top: 10px;
     position: relative;
   }
+
+  p.question {
+    min-height: 80px;
+  }
+
   ul.width-center {
     width: 135px;
   }
+
   input[type="radio"] {
     width: 30px;
     height: 30px;

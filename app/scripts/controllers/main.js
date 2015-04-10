@@ -3,6 +3,7 @@
 angular.module('creativityTestAppApp')
   .controller('MainCtrl', function ($scope, $http) {
     $scope.answers = [];
+    $scope.questionPercent = 0;
     $scope.resultMessage = '';
     $scope.importantMessage = '';
     $scope.resultByAreas = {};
@@ -65,8 +66,10 @@ angular.module('creativityTestAppApp')
     };
     
     $scope.radioClick = function (option, value) {
+      debugger;
       $scope.answers.push(value);
       angular.element('#li-'+ option).hide('slowly');
+      $scope.questionPercent = ((option + 1) * 100) / 30;
       if (option === 29) {
         $scope.testData();
       } else {
