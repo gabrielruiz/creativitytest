@@ -13,7 +13,8 @@
     .text-center(id='progressBar', style='width: {{questionPercent | number:2}}%;', ng-hide='questionPercent==0')
     span(id='progressPercentage', ng-hide='questionPercent==0', style='left: {{questionPercent | number:2}}%;')
       | {{questionPercent | number:0}}%
-ul.row.col-sm-11.col-sm-push-1.list-unstyled
+
+ul.row.col-sm-11.col-sm-push-1.list-unstyled(id='questionsList', ng-hide='showingResults')
   li.col-sm-12.minHeight(id='li-{{question.number}}', ng-repeat='question in questionsTest', ng-class='{ hid: question.number > 0}')
     p.question {{question.number+1}} - {{question.name}}
     br
@@ -25,7 +26,7 @@ ul.row.col-sm-11.col-sm-push-1.list-unstyled
             span {{valoration.title}}
         br
 
-.row.col-sm-11.col-sm-push-1(ng-show='resultByAreas.length > 0')
+.row.col-sm-11.col-sm-push-1(ng-show='showingResults')
   p.center-block 
     b Resultado General:
     p {{resultMessage}}

@@ -7,6 +7,7 @@ angular.module('creativityTestAppApp')
     $scope.resultMessage = '';
     $scope.importantMessage = '';
     $scope.resultByAreas = {};
+    $scope.showingResults = false;
     
     $http.get('/api/questionsTest').success(function(questionsTest) {
       $scope.questionsTest = questionsTest;
@@ -58,6 +59,7 @@ angular.module('creativityTestAppApp')
             }
             $scope.resultByAreas[i].result = resultByArea;
           }
+          $scope.showingResults = $scope.resultByAreas.length > 0; 
         });
       });
 
@@ -66,15 +68,15 @@ angular.module('creativityTestAppApp')
     };
     
     $scope.radioClick = function (option, value) {
-      debugger;
       $scope.answers.push(value);
-      angular.element('#li-'+ option).hide('slowly');
       $scope.questionPercent = ((option + 1) * 100) / 30;
-      if (option === 29) {
-        $scope.testData();
-      } else {
-        angular.element('#li-'+ (option + 1)).show('slowly');
-      }
+      angular.element('#li-'+ option).hide('slowly', function() {
+        if (option === 29) {
+          $scope.testData();
+        } else {
+          angular.element('#li-'+ (option + 1)).show('slowly');
+        }
+      });
     }
   })
   

@@ -114,6 +114,10 @@ ul.width-center {
   margin: auto;
 }
 
+ul#questionsList {
+  min-height: 200px;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
@@ -150,6 +154,10 @@ ul.width-center {
 
   ul.width-center {
     width: 135px;
+  }
+
+  ul#questionsList {
+    min-height: 300px;
   }
 
   input[type="radio"] {
