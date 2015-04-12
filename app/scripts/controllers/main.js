@@ -59,7 +59,6 @@ angular.module('creativityTestAppApp')
             }
             $scope.resultByAreas[i].result = resultByArea;
           }
-          $scope.showingResults = $scope.resultByAreas.length > 0; 
         });
       });
 
@@ -72,6 +71,7 @@ angular.module('creativityTestAppApp')
       $scope.questionPercent = ((option + 1) * 100) / 30;
       angular.element('#li-'+ option).hide('slowly', function() {
         if (option === 29) {
+          $scope.showingResults = true;
           $scope.testData();
         } else {
           angular.element('#li-'+ (option + 1)).show('slowly');
