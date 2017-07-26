@@ -1,7 +1,7 @@
 CreativityTest
 ==============
 
-![](https://goo.gl/mL8fzs)
+![app-screenshot](https://raw.githubusercontent.com/gabrielruiz/creativitytest/master/app/creativityTest.png)
 
 CreativityTest is a simple creativity test where you can know which is your creativity level. This is based on the creativity test wrote in Agilmente book by Estanislao Bachrach. 
 
