@@ -23,6 +23,6 @@ The following steps are need if you haven't grunt and bower installed. Otherwise
 
 `bower install`
 
-`grunt serve`
+`grunt serve:dist --force`
 
 If you need to run only the test run `grunt test`.
